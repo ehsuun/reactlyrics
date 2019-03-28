@@ -24,9 +24,6 @@ const theme = {
 };
 
 class App extends Component {
-
-  
-
   state = {
     showSidebar: false,
     lyrics: [
@@ -54,13 +51,12 @@ class App extends Component {
 
   componentDidMount() {
     fetch("https://randomuser.me/api/?results=3").then(res =>
-      res.json().then(_users =>{
+      res.json().then(_users => {
         console.log(_users["results"]);
         this.setState({
           users: _users["results"]
         });
-      }
-      )
+      })
     );
   }
 
@@ -88,14 +84,7 @@ class App extends Component {
             />
           </Box>
           <Box flex direction="row">
-            <Box
-              flex
-              justify="start"
-              direction="column"
-              border={{ color: "brand", size: "large" }}
-            >
-              <Users users={this.state.users} />
-            </Box>
+            <Users users={this.state.users} />
           </Box>
         </Box>
       </Grommet>
